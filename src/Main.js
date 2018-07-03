@@ -1,13 +1,17 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
-class Main extends Component{
-    render(){
-        return(
-            <div className = "Main">
-                Main
+import Sidebar from './Sidebar'
+import Chat from './Chat'
 
-            </div>
-        )
-    }
+class Main extends Component {
+  render() {
+    return (
+      <div className="Main">
+        <Sidebar />
+        <Chat />
+      </div>
+    )
+  }
 }
+
 export default Main

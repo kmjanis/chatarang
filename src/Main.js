@@ -7,18 +7,17 @@ class Main extends Component {
   render() {
     return (
       <div className="Main" style={styles}>
-
-        <Sidebar />
-        <Chat />
+        <Sidebar user={this.props.user} />
+        <Chat user={this.props.user} />
       </div>
     )
   }
 }
 
 const styles = {
-    display: 'flex',
-    alignItems: 'stretch',
-    height: '100vh',
+  display: 'flex',
+  alignItems: 'stretch',
+  height: '100vh',
 }
 
 export default Main

@@ -55,4 +55,6 @@ const styles = {
   },
 }
 
+//ignore hover rules
+
 export default Sidebar

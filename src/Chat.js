@@ -5,11 +5,11 @@ import MessageList from './MessageList'
 import MessageForm from './MessageForm'
 
 class Chat extends Component {
-  constructor(){
-      super()
+  constructor() {
+    super()
 
-      this.state={
-        messages:[
+    this.state = {
+      messages: [
         {
           id: 1,
           user: {
@@ -19,7 +19,7 @@ class Chat extends Component {
           },
           body: 'Chatting up a storm, yo!',
         },
-    
+
         {
           id: 2,
           user: {
@@ -29,9 +29,24 @@ class Chat extends Component {
           },
           body: 'This guy is so annoying. I hate my job.',
         },
-      ]
-    
-      }
+      ],
+    }
+  }
+
+  addMessage = () => {
+    const messages = [...this.state.messages]
+
+    messages.push({
+      id: Date.now(),
+      user: {
+        uid: 'sdfs34843560',
+        displayName: 'Stefany',
+        email: 'stefany@singing.org',
+      },
+      body: 'I do not think he\'s annoying. How dare you, Dana!',
+    })
+
+    this.setState({ messages: messages })
   }
 
   render() {
@@ -39,7 +54,7 @@ class Chat extends Component {
       <div className="Chat">
         <ChatHeader />
         <MessageList messages={this.state.messages} />
-        <MessageForm />
+        <MessageForm addMessage={this.addMessage} />
       </div>
     )
   }

@@ -1,10 +1,19 @@
 import React, { Component } from 'react'
 
 class MessageForm extends Component {
+    state= {
+        body: ' ',
+
+    }
 
 handleSubmit = (ev) => {
     ev.preventDefault()
-    this.props.addMessage()
+    this.props.addMessage(this.state.body)
+    this.setState({ body: ' '})
+}
+
+handleChange = (ev) => {
+    this.setState({ body: ev.target.value })
 }
 
   render() {
@@ -17,6 +26,8 @@ handleSubmit = (ev) => {
           type="text"
           name="body"
           placeholder="Type a message..."
+          value={this.state.body}
+          onChange={this.handleChange}
         />
         <button type="submit">
           Send

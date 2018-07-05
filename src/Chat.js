@@ -35,11 +35,11 @@ class Chat extends Component {
 
   addMessage = (body) => {
     const messages = [...this.state.messages]
-    const user =this.props.user 
+    const user = this.props.user
 
     messages.push({
-      id: `${user.uid}-{Date.now()}`,
-      user: this.props.user,
+      id: `${user.uid}-${Date.now()}`,
+      user,
       body,
     })
 
@@ -48,8 +48,10 @@ class Chat extends Component {
 
   render() {
     return (
-      <div className="Chat"
-      style={styles.Chat}>
+      <div
+        className="Chat"
+        style={styles}
+      >
         <ChatHeader />
         <MessageList messages={this.state.messages} />
         <MessageForm addMessage={this.addMessage} />
@@ -59,9 +61,9 @@ class Chat extends Component {
 }
 
 const styles = {
-  flex: '1',
+  flex: 1,
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
 }
 
 export default Chat

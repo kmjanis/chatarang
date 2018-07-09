@@ -13,7 +13,8 @@ const config = {
   messagingSenderId: "YOUR MESSAGING SENDER ID"
 }
 export const googleProvider = new firebase.auth.GoogleAuthProvider()
-  export const auth = firebase.auth()
+export const githubProvider = new firebase.auth.GithubAuthProvider()
+export const auth = firebase.auth()
 
 
 const app = firebase.initializeApp(config)

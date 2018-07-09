@@ -12,12 +12,11 @@ class Chat extends Component {
 
     this.state = {
       messages: [],
-       
     }
   }
 
   componentDidMount() {
-    base.syncState(
+    this.messagesRef = base.syncState(
       'messages/general',
       {
         context: this,
@@ -27,7 +26,7 @@ class Chat extends Component {
     )
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     base.removeBinding(this.messagesRef)
   }
 

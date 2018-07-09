@@ -27,6 +27,10 @@ class Chat extends Component {
     )
   }
 
+  componentWillUnmount(){
+    base.removeBinding(this.messagesRef)
+  }
+
   addMessage = (body) => {
     const messages = [...this.state.messages]
     const user = this.props.user

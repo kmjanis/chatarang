@@ -84,7 +84,7 @@ class SignIn extends Component {
             <h2 className={css(styles.h2)}>
               You're in good company.
             </h2>
-            <p>Join the army of the coolest chatters on the web</p>
+            <p>Ones of people are already using Chatarang.</p>
           </div>
         </main>
       </div>

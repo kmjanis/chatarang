@@ -9,7 +9,7 @@ const UserInfo = ({ user, signOut }) => {
       className="UserInfo"
       style={styles.userInfo}
     >
-      <Avatar user={user} />
+      { <Avatar user={user} />}
       <div style={styles.user}>
         {user.displayName}
       </div>

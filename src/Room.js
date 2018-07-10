@@ -1,37 +1,24 @@
-import React, {Component} from 'react'
+import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-//const Room = ({ roomName }) => {
-  //return (
-    //<li className={css(styles.item)} key={roomName}>
-      //<a href="/" className={css(styles.link)}>
-        //{roomName}
-      //</a>
-    //</li>
-  //)
-//}
-class Room extends Component {
-    constructor(props){
-        super(props)
-        this.onClick = this.onClick.bind(this)
-    }
-    onClick(e) {
-        e.preventDefault()
-        this.props.setCurrentRoom(this.props.roomName)
-    }
-    render(){
-        return(
-    <li className={css(styles.item)}>
-      <a href={this.props.roomName} 
+const Room = ({ roomName, setCurrentRoom }) => {
+  const handleClick = ev => {
+    ev.preventDefault()
+    setCurrentRoom(roomName)
+  }
+
+  return (
+    <li className={css(styles.item)} key={roomName}>
+      <a
+        href="/"
         className={css(styles.link)}
-        onClick={this.onClick}>
-        {this.props.roomName}
+        onClick={handleClick}
+      >
+        {roomName}
       </a>
     </li>
   )
 }
-            
-    }
 
 const styles = StyleSheet.create({
   item: {

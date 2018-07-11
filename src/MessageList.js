@@ -3,6 +3,17 @@ import React, { Component } from 'react'
 import Message from './Message'
 
 class MessageList extends Component {
+  componentDidUpdate(prevProps) {
+    if (prevProps.messages.length < this.props.messages.length) {
+      this.scrollToBottom()
+    }
+  }
+
+  scrollToBottom = () => {
+    // "smooth" and other options not supported in IE
+    this.messagesEnd.scrollIntoView({ behavior: 'smooth' })
+  }
+
   render() {
     const { messages, room } = this.props
     return (
@@ -10,10 +21,7 @@ class MessageList extends Component {
         className="MessageList"
         style={styles.messageList}
       >
-        <div
-          className="roomAnnouncement"
-          style={styles.roomAnnouncement}
-        >
+        <div style={styles.roomAnnouncement}>
           <h3 style={styles.h3}>
             #{room.name}
           </h3>
@@ -22,12 +30,10 @@ class MessageList extends Component {
 
         {
           messages.map(msg => (
-            <Message
-              message={msg}
-              key={msg.id}
-            />
+            <Message message={msg} key={msg.id} />
           ))
         }
+        <div ref={el => this.messagesEnd = el}></div>
       </div>
     )
   }

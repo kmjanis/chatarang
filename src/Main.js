@@ -8,10 +8,9 @@ import base from './base'
 class Main extends Component {
   state = {
     room: {
-      name: 's3afternoon',
-      description: 'Ask questions and share code',
+      name: 'general',
+      description: 'Chat about stuff',
     },
-
     rooms: {},
     showRoomForm: false,
   }
@@ -25,7 +24,7 @@ class Main extends Component {
         defaultValue: {
           general: {
             name: 'general',
-            description: 'Chat about whatever',
+            description: 'Chat about stuff',
           },
         }
       }

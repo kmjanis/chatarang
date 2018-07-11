@@ -8,9 +8,10 @@ import base from './base'
 class Main extends Component {
   state = {
     room: {
-      name: 'general',
-      description: 'Chat about stuff',
+      name: 's3afternoon',
+      description: 'Ask questions and share code',
     },
+
     rooms: {},
     showRoomForm: false,
   }
@@ -24,15 +25,28 @@ class Main extends Component {
         defaultValue: {
           general: {
             name: 'general',
-            description: 'Chat about stuff',
+            description: 'Chat about whatever',
           },
-        }
+        },
+        then: this.setRoomFromRoute,
       }
     )
   }
 
+  componentDidUpdate(prevProps) {
+    const { roomName } = this.props.match.params
+    if (prevProps.match.params.roomName !== roomName) {
+      this.setRoomFromRoute()
+    }
+  }
+
   componentWillUnmount() {
     base.removeBinding(this.roomsRef)
+  }
+
+  setRoomFromRoute = () => {
+    const { roomName } = this.props.match.params
+    this.setCurrentRoom(roomName)
   }
 
   addRoom = room => {
